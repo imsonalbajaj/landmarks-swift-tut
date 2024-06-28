@@ -8,10 +8,19 @@
 import SwiftUI
 
 struct LandmarkList: View {
+    @State private var selectedLandMark = true
+    var selectedLandmarks : [Landmark] {
+        landmarks.filter{$0.isFavorite == selectedLandMark}
+    }
+    
     var body: some View {
         NavigationSplitView {
             List {
-                ForEach(landmarks) { landmark in
+                
+                Toggle(isOn: $selectedLandMark) {
+                    Text("Toogle :")
+                }
+                ForEach(selectedLandmarks) { landmark in
                     //                LandmarkRow(landmark: landmark)
                     NavigationLink {
                         LandmarkDetail(landmark: landmark)
@@ -21,6 +30,7 @@ struct LandmarkList: View {
                     }
                 }
             }
+            .animation(.default, value: selectedLandmarks)
             .navigationTitle("Landmarks")
         } detail: {
             Text("details")
