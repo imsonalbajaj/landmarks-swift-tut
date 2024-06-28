@@ -10,7 +10,10 @@ import Foundation
 // generic func - used to load data file from the bundle
 // this method that fetches JSON data with a given name from the app’s main bundle.
 
-var landmarks : [Landmark] = load("landmarkData", withExt: "json");
+@Observable
+class ModelData {
+    var landmarks : [Landmark] = load("landmarkData", withExt: "json");
+}
 
 func load<T: Decodable>(_ filename: String, withExt: String? = nil) -> T {
     let data: Data

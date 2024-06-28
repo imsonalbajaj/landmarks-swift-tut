@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct LandmarkList: View {
+    @Environment(ModelData.self) var modelData
     @State private var selectedLandMark = true
     var selectedLandmarks : [Landmark] {
-        landmarks.filter{$0.isFavorite == selectedLandMark}
+        modelData.landmarks.filter{$0.isFavorite == selectedLandMark}
     }
     
     var body: some View {

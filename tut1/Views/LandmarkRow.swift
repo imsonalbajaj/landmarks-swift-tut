@@ -34,15 +34,3 @@ struct LandmarkRow: View {
             }
     }
 }
-
-#Preview("rock") {
-    Group {
-        LandmarkRow(landmark: landmarks[0])
-        LandmarkRow(landmark: landmarks[1])
-    }
-    
-}
-
-#Preview("trees") {
-    LandmarkRow(landmark: landmarks[1])
-}
