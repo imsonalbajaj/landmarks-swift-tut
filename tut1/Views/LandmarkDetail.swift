@@ -29,17 +29,12 @@ struct LandmarkDetail: View {
                 
                 HStack() {
                     Text(landmark.park)
-                        .font(.subheadline)
-                        .fontWeight(.medium)
-                        .multilineTextAlignment(.leading)
-                    
                     Spacer()
-                    
                     Text(landmark.state)
-                        .font(.subheadline)
-                        .fontWeight(.medium)
-                        .multilineTextAlignment(.leading)
                 }
+                .font(.subheadline)
+                .fontWeight(.medium)
+                .multilineTextAlignment(.leading)
                 
                 Spacer()
                     .frame(height: 20)
@@ -60,5 +55,7 @@ struct LandmarkDetail: View {
             .padding([.leading, .trailing], 30)
             
         }
+        .navigationTitle(landmark.name)
+        .navigationBarTitleDisplayMode(.inline)
     }
 }

@@ -9,9 +9,9 @@ import SwiftUI
 
 struct LandmarkList: View {
     @Environment(ModelData.self) var modelData
-    @State private var selectedLandMark = true
+    @State private var selectedLandMark = false
     var selectedLandmarks : [Landmark] {
-        modelData.landmarks.filter{$0.isFavorite == selectedLandMark}
+        return selectedLandMark ? modelData.landmarks.filter{$0.isFavorite} :  modelData.landmarks
     }
     
     var body: some View {
@@ -19,7 +19,7 @@ struct LandmarkList: View {
             List {
                 
                 Toggle(isOn: $selectedLandMark) {
-                    Text("Toogle :")
+                    Text("Favourites only :")
                 }
                 ForEach(selectedLandmarks) { landmark in
                     //                LandmarkRow(landmark: landmark)
