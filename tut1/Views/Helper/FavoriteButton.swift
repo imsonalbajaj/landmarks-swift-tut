@@ -20,6 +20,6 @@ struct FavoriteButton: View {
     }
 }
 
-#Preview {
-    FavoriteButton(isSet: .constant(false))
-}
+//#Preview {
+//    FavoriteButton(isSet: .constant(false))
+//}
